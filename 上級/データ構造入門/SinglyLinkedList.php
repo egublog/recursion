@@ -27,7 +27,6 @@ for($i = 1; $i < count($arr); $i++){
     $currentNode = $currentNode->next;
 }
 
-$currentNode = $numList->head;
 while($currentNode !== null){
     echo $currentNode->data . PHP_EOL;
     $currentNode = $currentNode->next;
