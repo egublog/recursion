@@ -13,7 +13,8 @@ class SinglyLinkedList{
     public $arr;
     public $head;
 
-    public function __construct($arr){
+    public function __construct($arr)
+    {
         $this->head = count($arr) > 0 ? new Node($arr[0]) : new Node(null);
         $currentNode = $this->head;
         for($i = 1; $i < count($arr); $i++){
@@ -22,7 +23,8 @@ class SinglyLinkedList{
         }
     }
 
-    public function at($index){
+    public function at($index)
+    {
         $iterator = $this->head;
         for($i = 0; $i < $index; $i++){
             $iterator = $iterator->next;
@@ -31,7 +33,8 @@ class SinglyLinkedList{
         return $iterator;
     }
 
-    public function findNode($key){
+    public function findNode($key): null|int
+    {
         $iterator = $this->head;
         $count = 0;
         while($iterator != null){
