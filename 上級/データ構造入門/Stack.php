@@ -48,3 +48,19 @@ $s->push(3);
 $s->push(1);
 $s->pop();
 echo $s->peek() .PHP_EOL;
+
+// 配列を逆向きに返す
+function reverse($arr)
+{
+    $s = new Stack();
+    foreach($arr as $data){
+        $s->push($data);
+    }
+    $arr = [];
+    while($s->peek() != null){
+        $arr[] = $s->pop();
+    }
+    return $arr;
+}
+$arr = [1,2,3,4,5,6];
+print(json_encode(reverse($arr))) .PHP_EOL;
