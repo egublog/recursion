@@ -163,4 +163,4 @@ function getMaxWindows($arr, $k)
   return $results;
 }
 
-print(json_encode(getMaxWindows([34,35,64,34,10,2,14,5,353,23,35,63,23], 4))) .PHP_EOL;
+print(json_encode(getMaxWindows([34,35,64,34,10,2,14,5,353,23,35,63,23], 4))) .PHP_EOL; // [64,64,64,34,14,353,353,353,353,63]
