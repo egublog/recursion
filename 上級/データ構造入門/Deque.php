@@ -129,3 +129,38 @@ function getMax($arr){
 }
 
 echo getMax([34,35,64,34,10,2,14,5,353,23,35,63,23]) .PHP_EOL;
+
+// 配列と整数 k が与えられたとき、サイズ k の連続する部分配列の最大値
+// NOTE: スライディングウィンドウという有名な方法で解ける
+function getMaxWindows($arr, $k)
+{
+  if($k > count($arr)) return [];
+
+  $results = [];
+  $deque = new Deque();
+
+  for($i = 0; $i < $k; $i++){
+      while($deque->peekBack() !== null && $arr[$deque->peekBack()] <= $arr[$i]){
+          $deque->dequeueBack();
+      }
+      $deque->enqueueBack($i);
+  }
+
+
+  for($i = $k; $i < count($arr); $i++){
+      array_push( $results,$arr[$deque->peekFront()]);
+
+      while($deque->peekFront() !== null && $deque->peekFront() <= $i-$k) $deque->dequeueFront();
+
+
+      while($deque->peekBack() !== null && $arr[$deque->peekBack()] <= $arr[$i]) $deque->dequeueBack();
+      $deque->enqueueBack($i);
+  }
+
+  array_push($results, $arr[$deque->peekFront()]);
+
+
+  return $results;
+}
+
+print(json_encode(getMaxWindows([34,35,64,34,10,2,14,5,353,23,35,63,23], 4))) .PHP_EOL;
