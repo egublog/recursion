@@ -114,3 +114,18 @@ $q->dequeueBack();
 
 echo $q->peekFront() .PHP_EOL;
 echo $q->peekBack() .PHP_EOL;
+
+// リストの最大値を求める
+function getMax($arr){
+  $deque = new Deque();
+  $deque->enqueueFront($arr[0]);
+
+  for($i = 1; $i < count($arr); $i++){
+      if($arr[$i] > $deque->peekFront()) $deque->enqueueFront($arr[$i]);
+      else $deque->enqueueBack($arr[$i]);
+  }
+
+  return $deque->peekFront();
+}
+
+echo getMax([34,35,64,34,10,2,14,5,353,23,35,63,23]) .PHP_EOL;
