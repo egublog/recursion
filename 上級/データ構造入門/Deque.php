@@ -11,6 +11,7 @@ class Node
     }
 }
 
+// 両端キューのこと
 class Deque
 {
     public $head;
