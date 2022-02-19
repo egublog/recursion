@@ -17,8 +17,8 @@ class BinaryTree
 }
 
 $binaryTree = new BinaryTree(1);
-$node2 = new BinaryTree(2);
-$node3 = new BinaryTree(3);
+$node2      = new BinaryTree(2);
+$node3      = new BinaryTree(3);
 
 $binaryTree->left = $node2;
 $binaryTree->right = $node3;
