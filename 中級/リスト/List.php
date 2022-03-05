@@ -87,3 +87,64 @@ function maxValue($arr){
   }
   return $max;
 }
+
+// 文の配列と文字を受け取り、その文字を含む文が何個あるかを返します。
+// アルファベットの大文字、小文字は区別しないとする。
+function totalFoundInSentence($sentences, $c){
+  // 反復処理を使います。
+  $count = 0;
+  // 配列の中にあるそれぞれの要素のそれぞれの文字について調べます。
+  for ($i = 0; $i < count($sentences); $i++){
+      $currentSentence = $sentences[$i];
+      for ($j = 0; $j < strlen($currentSentence); $j++){
+          // lower関数で全て小文字にして、1文字ずつチェックします。
+          if (strtolower($currentSentence[$j]) == $c){
+              //カウンターを増加します。
+              $count++;
+              // breakキーワードによってforループから強制的に抜け出します。
+              break;
+          }
+      }
+  }
+  return $count;
+}
+
+$list2 = ["The wood", "Pecked peckers", "At the inn", "Tomorrowland"];
+
+$totalFound = totalFoundInSentence($list2,'a');
+echo $totalFound . PHP_EOL;
+
+
+// 例題1
+// 文字列によって構成される配列が与えられるので、配列内に存在する全ての文字数をカウントする、countCharという関数を作成してください。
+
+// ["The wood", "Pecked peckers", "At the inn", "Tomorrowland"] -> 44
+// ["He","fumbled","in","the,darkness","looking","for","the","light","switch"] -> 47
+// ["I","am","never","at","home","on","Sundays"] -> 23
+function countChar($sentences){
+  $count = 0;
+  for ($i = 0; $i < count($sentences); $i++){
+      $currentSentence = $sentences[$i];
+      $count += strlen($currentSentence);
+  }
+  return $count;
+}
+
+
+// 例題2
+// 小文字によって構成される配列が与えられるので、n以降の文字（o,p,q,rなど）をカウントする、higherThanNという関数を作成してください。
+
+// ["the wood", "pecked peckers", "at the inn", "tomorrowland"] -> 20
+// ["he","fumbled","in","the","darkness","looking","for","the","light","switch"] -> 17
+// ["he","is","never","at","home","on","weekends"] -> 11
+function higherThanN($arr)
+{
+  $count = 0;
+  for ($i = 0; $i < count($arr); $i++) {
+      $string = $arr[$i];
+      for ($j = 0; $j < strlen($string); $j++) {
+          if (ord($string[$j]) >= 110) $count++;
+      }
+  }
+  return $count;
+}
