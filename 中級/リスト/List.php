@@ -148,3 +148,36 @@ function higherThanN($arr)
   }
   return $count;
 }
+
+// 配列はオブジェクトを格納できる
+class Car
+{
+  public $make;
+  public $model;
+  public $year;
+
+  function __construct($make, $model, $year){
+      $this->make = $make;
+      $this->model = $model;
+      $this->year = $year;
+  }
+}
+
+function printCarArray($carArray)
+{
+  // arrの長さまで反復処理を繰り返します。
+  for ($i = 0; $i < count($carArray); $i++){
+      echo $carArray[$i]->make . "-" . $carArray[$i]->model . "-" . $carArray[$i]->year . PHP_EOL;
+  }
+}
+
+// PHPの配列は動的配列です。
+// 配列を作成し、3つのオブジェクトを追加します。array_push(配列、値)か変数名[]でデータを追加することができます。
+$cars = [];
+array_push($cars, new Car("Toyota", "Camry", 2000));
+$cars[] = new Car("BMW", "X1 Sports", 2019);
+$cars[] = new Car("Nissan", "GT-R", 2020);
+
+echo "First model: " . $cars[0]->make . "-" . $cars[0]->model . "-" . $cars[0]->year . PHP_EOL;
+
+printCarArray($cars);
