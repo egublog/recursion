@@ -88,20 +88,16 @@ function maxValue($arr){
   return $max;
 }
 
-// 文の配列と文字を受け取り、その文字を含む文が何個あるかを返します。
+// 文の配列と文字を受け取り、その文字を含む文が何個あるかを返す
 // アルファベットの大文字、小文字は区別しないとする。
 function totalFoundInSentence($sentences, $c){
-  // 反復処理を使います。
   $count = 0;
-  // 配列の中にあるそれぞれの要素のそれぞれの文字について調べます。
+  // 配列の中にあるそれぞれの要素のそれぞれの文字について調べる
   for ($i = 0; $i < count($sentences); $i++){
       $currentSentence = $sentences[$i];
       for ($j = 0; $j < strlen($currentSentence); $j++){
-          // lower関数で全て小文字にして、1文字ずつチェックします。
           if (strtolower($currentSentence[$j]) == $c){
-              //カウンターを増加します。
               $count++;
-              // breakキーワードによってforループから強制的に抜け出します。
               break;
           }
       }
