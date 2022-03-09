@@ -44,7 +44,6 @@ function isEven($n){
   return $n % 2 == 0;
 }
 
-// 整数の配列を取り込んで、偶数が何個あるかを調べます。
 function totalEven($listOfInts){
   $count = 0;
   for($i = 0; $i < count($listOfInts); $i++){
