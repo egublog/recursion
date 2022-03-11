@@ -10,6 +10,7 @@ class Node
     }
 }
 
+// キュー
 class Queue
 {
     public $head;
