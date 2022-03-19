@@ -14,9 +14,8 @@ printIntArray($arr);
 // 動的配列を取得し，その内容を出力する
 function printArray($intArr){
     for ($i = 0; $i < count($intArr); $i++){
-        echo $intArr[$i] . " ";
+        echo $intArr[$i] . " " . PHP_EOL;
     }
-    echo PHP_EOL;
 }
 
 // PHPの動的配列はオブジェクトではない。
