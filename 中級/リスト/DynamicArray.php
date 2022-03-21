@@ -105,3 +105,45 @@ for($i = 0; $i < 5; $i++) {
     array_pop($dArr);
 }
 printArray3($dArr);
+
+// オブジェクトの状態と配列
+
+class Animal{
+    public $species;
+    public $weightKg;
+    public $heightM;
+    public $predator;
+
+    function __construct($species, $weightKg, $heightM, $predator){
+        $this->species = $species;
+        $this->weightKg = $weightKg;
+        // 動物が立ち上がることを仮定すると、高さは最大の寸法になります。
+        $this->heightM = $heightM;
+        $this->predator = $predator;
+    }
+
+    function domesticate(){
+        $this->predator = false;
+    }
+}
+
+function printAnimal($animal){
+    echo "The animal species is: " . $animal->species . ". It's weight is: " . $animal->weightKg . "kg and its height is: " . $animal->heightM . "m. " . (($animal->predator) ? "It is a predator!" : "It is a peaceful animal."). PHP_EOL;
+}
+
+$tiger1 = new Animal("Tiger", 290, 2.6, true);
+$bear1 = new Animal("Bear", 250, 2.8, true);
+$snake1 = new Animal("Snake", 250, 12.8, true);
+$dog1 = new Animal("Dog", 90, 1.2, false);
+$cat1 = new Animal("Cat", 40, 0.5, false);
+$cow1 = new Animal("Cow", 1134, 1.5, false);
+// 何か他の動物を作成してみましょう。
+
+printAnimal($tiger1);
+printAnimal($bear1);
+printAnimal($cat1);
+
+echo "Time to tame the tiger...". PHP_EOL;
+// tigerの状態を捕食者から変えてみましょう。
+$tiger1->domesticate();
+printAnimal($tiger1);
