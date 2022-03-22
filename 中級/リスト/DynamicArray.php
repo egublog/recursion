@@ -160,3 +160,40 @@ function print2dArray($array2d){
 
 $array2d = [[1,2,3],[4,5,6],[7,8,9]];
 print2dArray($array2d);
+
+// 2次元配列(2)
+function getTotalForProductList($product2dPriceList){
+    $finalTotal = 0;
+    for ($i = 0; $i < count($product2dPriceList); $i++){
+        $priceList = $product2dPriceList[$i];
+        $price = $priceList[0];
+        $total = $price;
+        // 最初の値の後に開始
+        for ($j = 1; $j < count($priceList); $j++){
+            $multiplier = $priceList[$j];
+            $total += $price * $multiplier;
+        }
+        // finalTotalを足していきます。
+        echo "Total for current item is:" . ($total). PHP_EOL;
+        $finalTotal += $total;
+    }
+    return $finalTotal;
+}
+
+// 商品の配列
+$product1 = [100, 0.1, 0.02, 0.03, 0.02];
+$product2 = [50, -0.5, 0.1, 0.05, 0.02];
+$product3 = [34, 0.05, 0.2, 0.03, 0.1];
+$product4 = [10, -0.2, 0.3, 0.05, 0.03];
+
+// Shopping cartは全てのアイテムを含んでいます。2次元配列。
+$shoppingCartArray = [$product1, $product2, $product3, $product4];
+echo getTotalForProductList($shoppingCartArray). PHP_EOL;
+
+
+// 例題
+// 二次元配列が与えられるので、最大値を返す、maxValueという関数を作成してください。
+
+// [[1,1,2,3,2], [5,5,1,5,2], [3,5,2,3,1], [1,2,3,6,3]] -> 6
+// [[0,9,1,4,5], [1,3,3,4,7], [11,12,34,81,12], [12,24,63,76,13]] -> 81
+// [[-2,39,94,12,49], [11,35,84,21,32], [157,243,121,23,33], [11,43,65,84,29]] -> 243
