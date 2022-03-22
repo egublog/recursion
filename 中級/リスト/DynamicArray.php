@@ -147,3 +147,16 @@ echo "Time to tame the tiger...". PHP_EOL;
 // tigerの状態を捕食者から変えてみましょう。
 $tiger1->domesticate();
 printAnimal($tiger1);
+
+// 2次元配列(1)
+function print2dArray($array2d){
+    for ($i = 0; $i < count($array2d); $i++){
+        $arr = $array2d[$i];
+        for ($j = 0; $j < count($arr); $j++){
+            echo $arr[$j]. PHP_EOL;
+        }
+    }
+}
+
+$array2d = [[1,2,3],[4,5,6],[7,8,9]];
+print2dArray($array2d);
