@@ -197,3 +197,68 @@ echo getTotalForProductList($shoppingCartArray). PHP_EOL;
 // [[1,1,2,3,2], [5,5,1,5,2], [3,5,2,3,1], [1,2,3,6,3]] -> 6
 // [[0,9,1,4,5], [1,3,3,4,7], [11,12,34,81,12], [12,24,63,76,13]] -> 81
 // [[-2,39,94,12,49], [11,35,84,21,32], [157,243,121,23,33], [11,43,65,84,29]] -> 243
+
+// 2次元配列(3)
+class Student {
+    public $studentId;
+    public $firstName;
+    public $lastName;
+    public $gradeLevel;
+
+    function __construct($studentId, $firstName, $lastName, $gradeLevel){
+        $this->studentId = $studentId;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->gradeLevel = $gradeLevel;
+    }
+
+    function getFullName(){
+        return $this->firstName . " " . $this->lastName;
+    }
+}
+
+class Classroom {
+    public $students;
+    public $courseName;
+    public $period;
+    public $roomNumber;
+    public $teacher;
+
+    function __construct($students, $courseName, $period, $roomNumber, $teacher){
+        $this->students = $students;
+        $this->courseName = $courseName;
+        $this->period = $period;
+        $this->roomNumber = $roomNumber;
+        $this->teacher = $teacher;
+    }
+
+    function getClassIdentity(){
+        return $this->courseName . " room " . $this->roomNumber . " during period " . $this->period . " managed by " . $this->teacher;
+    }
+
+    function getNumberOfStudents(){
+        return count($this->students);
+    }
+}
+
+function printSchoolSchedule($classrooms){
+    for ($i = 0; $i < count($classrooms); $i++){
+        $classroom = $classrooms[$i];
+        echo $classroom->getClassIdentity(). PHP_EOL;
+        $studentString = "";
+        for ($j = 0; $j < count($classroom->students)-1; $j++){
+            $student = $classroom->students[$j];
+            $studentString .= $student->getFullName() . ",";
+        }
+        $studentString .= $classroom->students[$classroom->getNumberOfStudents()-1]->getFullName();
+        echo "Student list: " . $studentString. PHP_EOL;
+    }
+}
+
+$classroom1 = new Classroom([new Student("AC-343424","Vincent", "Lynch",10), new Student("AC-343434","Violet", "Marshall",10),new Student("AC-343428","Aubree", "Lambert",10),new Student("AC-343454","Danny", "Robertson",10)], "Algebra II", 2, 23, "Emily Theodore");
+$classroom2 = new Classroom([new Student("AC-340014","Kent", "Carter",11), new Student("AC-340024","Isaiah", "Chambers",11),new Student("AC-340018","Leta", "Ferguson",11)], "English", 5, 104, "Daniel Pherb");
+
+$classroom3 = new Classroom([new Student("AC-330010","Glenda", "Soto",12), new Student("AC-330035","Johnny", "Robertson",12),new Student("AC-330020","Ava", "Hansen",12), new Student("AC-340084","Nathaniel", "Romero",11)], "Biology", 5, 36, "Maki Watanabe");
+
+$school = [$classroom1, $classroom2, $classroom3];
+printSchoolSchedule($school);
