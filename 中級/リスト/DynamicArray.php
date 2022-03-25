@@ -262,3 +262,13 @@ $classroom3 = new Classroom([new Student("AC-330010","Glenda", "Soto",12), new S
 
 $school = [$classroom1, $classroom2, $classroom3];
 printSchoolSchedule($school);
+
+// 多次元配列
+
+$array3d = [[[3,4,3],[4,7,8]],[[1,3,5],[2,7,8]],[[1,2,3],[9,7,8]]];
+
+echo $array3d[2][1][0]. PHP_EOL;
+
+$array4d = [[[[3,3],[4,3],[9,3]],[[6,5],[8,3],[9,3]]],[[[3,3],[4,3],[9,3]],[[6,5],[8,3],[9,3]]],[[[3,3],[4,3],[9,3]],[[6,5],[8,3],[9,3]]]];
+
+echo $array4d[2][1][2][1]. PHP_EOL;
