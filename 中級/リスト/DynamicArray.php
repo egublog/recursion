@@ -272,3 +272,49 @@ echo $array3d[2][1][0]. PHP_EOL;
 $array4d = [[[[3,3],[4,3],[9,3]],[[6,5],[8,3],[9,3]]],[[[3,3],[4,3],[9,3]],[[6,5],[8,3],[9,3]]],[[[3,3],[4,3],[9,3]],[[6,5],[8,3],[9,3]]]];
 
 echo $array4d[2][1][2][1]. PHP_EOL;
+
+function print3dArray($rank3Array){
+    for ($i = 0; $i < count($rank3Array); ++$i) {
+        echo "[";
+        for ($j = 0; $j < count($rank3Array[$i]); ++$j){
+            echo "[";
+            for ($k = 0; $k < count($rank3Array[$i][$j]); ++$k){
+                echo $rank3Array[$i][$j][$k] . "-";
+            }
+            echo "]";
+        }
+        echo "]";
+    }
+    echo ''. PHP_EOL;
+}
+
+function print4dArray($rank4Array){
+    for ($i = 0; $i < count($rank4Array); ++$i) {
+        echo "[";
+        for ($j = 0; $j < count($rank4Array[$i]); ++$j){
+            echo "[";
+            for ($k = 0; $k < count($rank4Array[$i][$j]); ++$k){
+                echo "[";
+                for ($l = 0; $l < count($rank4Array[$i][$j][$k]); ++$l){
+                    echo $rank4Array[$i][$j][$k][$l] . "-";
+                }
+                echo "]";
+            }
+            echo "]";
+        }
+        echo "]";
+    }
+    echo ''. PHP_EOL;
+}
+
+// 3次元配列
+$array3d = [[[3,4,3],[4,7,8]],[[1,3,5],[2,7,8]],[[1,2,3],[9,7,8]]];
+echo "printing 3d array...". PHP_EOL;
+print3dArray($array3d). PHP_EOL;
+
+
+// 4次元配列
+$array4d = [[[[3,3],[4,3],[9,3]],[[6,5],[8,3],[9,3]]],[[[3,3],[4,3],[9,3]],[[6,5],[8,3],[9,3]]],[[[3,3],[4,3],[9,3]],[[6,5],[8,3],[9,3]]]];
+echo "printing 4d array...". PHP_EOL;
+echo $array4d[2][1][2][1]. PHP_EOL;
+print4dArray($array4d). PHP_EOL;
