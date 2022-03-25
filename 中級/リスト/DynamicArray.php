@@ -318,3 +318,103 @@ $array4d = [[[[3,3],[4,3],[9,3]],[[6,5],[8,3],[9,3]]],[[[3,3],[4,3],[9,3]],[[6,5
 echo "printing 4d array...". PHP_EOL;
 echo $array4d[2][1][2][1]. PHP_EOL;
 print4dArray($array4d). PHP_EOL;
+
+// 4次元リストを返します。[[[[char,char,char,char]]]]
+// 棚を含む配列、本の配列を含む棚、名言の配列を含む本、文字の配列を含む名言
+function myLibraryQuotes(){
+    // 本棚1の本
+    $book1Quotes = [
+        "Let all of life be an unfettered howl.",
+        "Our lives were just beginning, our favorite moment was right now, our favorite songs were unwritten.",
+        "You were born to stand out, stop trying to fit in.",
+        "Do not wait for the last judgment. It comes every day.",
+    ];
+
+    $book2Quotes = [
+        "It is not a religion. It is a relationship.",
+        "The choice is yours. Don't let your pronouncements destroy your destiny rather let them build your future up!",
+        "Poetry is born; When the relationships begin to melt on the slow flame of the eyes.",
+        "Fatherhood is sacred."
+    ];
+
+    $book3Quotes = [
+        "Marriage is a partnership; not a sole proprietorship.",
+        "She was soft rock that suddenly turned hard.",
+        "A human is the one, who would give up a thousand Cleopatras to be with the person he or she loves.",
+        "You read between the wrong lines."
+    ];
+
+    $bookshelf1 = [$book1Quotes, $book2Quotes, $book3Quotes];
+
+    // 本棚2の本
+    $book4Quotes = [
+        "Everything you want in life is a relationship away.",
+        "Life!Even though it's black and white, it's still fairly colorful.",
+        "To question reason is to trust it.",
+        "La prueba de ausencia no es prueba de ausencia",
+        "Not how the world is, but that it is, is the mystery.",
+    ];
+
+    $book5Quotes = [
+        "Confuse them with your silence. Shock them with your results.",
+        "All statistics have outliers.",
+        "The moon fascinates us in her simplicity.",
+        "Anything you're good at contributes to happiness."
+    ];
+
+    $book6Quotes = [
+        "Confuse them with your silence. Shock them with your results.",
+        "All statistics have outliers.",
+        "The moon fascinates us in her simplicity.",
+        "Anything you're good at contributes to happiness."
+    ];
+
+    $book7Quotes = [
+        "Don't write to sell, write to tell.",
+        "Slowly we became silent, and silence itself if an enemy to friendship.",
+        "Without the sun I am cold.Without your smile I am lost.",
+        "You are the softness of the morning dew!"
+    ];
+
+    $bookshelf2 = [$book4Quotes, $book5Quotes, $book6Quotes, $book7Quotes];
+
+    // 本棚3の本
+    $book8Quotes = [
+        "The Heart wants what it wants - or else it does not care",
+        "You have a beautiful laugh. Like the promise of tomorrow.",
+        "You'll never be able to let him go. You'll always feel wrong about being with me."
+    ];
+
+    $book9Quotes = [
+        "The voice of Love seemed to call to me, but it was a wrong number.",
+        "Do not allow me to forget you",
+        "Education consists mainly of what we have unlearned."
+    ];
+
+    $book10Quotes = [
+        "LIFE - Death's Very Emissary",
+        "To conquer fear, you must become fear.",
+        "Meditation is the energy of the mind,"
+    ];
+
+    $bookshelf3 = [$book8Quotes, $book9Quotes, $book10Quotes];
+    return [$bookshelf1, $bookshelf2, $bookshelf3];
+}
+
+function libraryQuotePrinter($libraryArray){
+    for ($i = 0; $i < count($libraryArray); $i++){
+        for ($j = 0; $j < count($libraryArray[$i]); $j++){
+            for ($k = 0; $k < count($libraryArray[$i][$j]); $k++){
+                $quoteParsed = "";
+                for ($l = 0; $l < strlen($libraryArray[$i][$j][$k]); $l++){
+                    $quoteParsed .= "-" . $libraryArray[$i][$j][$k][$l];
+                }
+                $quoteParsed .= "";
+                echo $quoteParsed . PHP_EOL;
+            }
+        }
+    }
+}
+
+$library4dList = myLibraryQuotes();
+libraryQuotePrinter($library4dList);
