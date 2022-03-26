@@ -83,24 +83,19 @@ printArray3($dArr);
 
 echo "Insert/Delete at the end O(1)" . PHP_EOL;
 
-// 配列の最後に要素を追加します。
-// 1つの要素をプッシュします。
 $dArr[] = 4;
 array_push($dArr, 50);
 printArray3($dArr);
 
-// 配列の最後に複数要素を追加します。いくつでも可能です。
 array_push($dArr, 6,3,4,54);
 printArray3($dArr);
 
-// 配列の最後を削除します。
-// 1つの要素を削除します。
 array_pop($dArr);
 printArray3($dArr);
 
 echo "Pop 5 from end " . PHP_EOL;
 
-// 後ろから5つの要素を削除します。
+// 後ろから5つの要素を削除する
 for($i = 0; $i < 5; $i++) {
     array_pop($dArr);
 }
