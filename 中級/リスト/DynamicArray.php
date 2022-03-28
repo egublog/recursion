@@ -413,3 +413,36 @@ function libraryQuotePrinter($libraryArray){
 
 $library4dList = myLibraryQuotes();
 libraryQuotePrinter($library4dList);
+
+// 探索
+
+function needleInHaystack($haystack, $needle){
+    // 針を見つけるために、個々の要素を見ていきます。
+    // この検索は、O(n)の時間がかかります。
+    for ($i = 0; $i < count($haystack); ++$i) {
+        if($haystack[$i] == $needle){
+            return $i;
+        }
+    }
+    return -1;
+}
+
+function printAtIndex($index, $words){
+    if ($index >= 0 && $index < count($words)){
+        echo "Printing: ->" . $words[$index] . "<- at index: " . $index. PHP_EOL;
+    } else {
+        echo "Index out of scope!". PHP_EOL;
+    }
+}
+
+// 文字列の配列を作成します。
+$words = ["Take", "Restaurant", "Family", "Running", "Tea", "Apples"];
+
+// "Running"という文字列を配列の中から探します。
+printAtIndex(needleInHaystack($words, "Running"), $words);
+
+// "Apple"という文字列を配列の中から探します。
+printAtIndex(needleInHaystack($words, "Apples"), $words);
+
+// "Train"という存在しない文字列を配列の中から探します。
+printAtIndex(needleInHaystack($words, "Train"), $words);
