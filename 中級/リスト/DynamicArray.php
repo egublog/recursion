@@ -398,10 +398,10 @@ function myLibraryQuotes(){
 
 function libraryQuotePrinter($libraryArray){
     for ($i = 0; $i < count($libraryArray); $i++){
-        for ($j = 0; $j < count($libraryArray[$i]); $j++){
-            for ($k = 0; $k < count($libraryArray[$i][$j]); $k++){
+        for ($j = 0; $j < count($libraryArray[$i]); $j++) {
+            for ($k = 0; $k < count($libraryArray[$i][$j]); $k++) {
                 $quoteParsed = "";
-                for ($l = 0; $l < strlen($libraryArray[$i][$j][$k]); $l++){
+                for ($l = 0; $l < strlen($libraryArray[$i][$j][$k]); $l++) {
                     $quoteParsed .= "-" . $libraryArray[$i][$j][$k][$l];
                 }
                 $quoteParsed .= "";
@@ -446,3 +446,15 @@ printAtIndex(needleInHaystack($words, "Apples"), $words);
 
 // "Train"という存在しない文字列を配列の中から探します。
 printAtIndex(needleInHaystack($words, "Train"), $words);
+
+// 連想配列
+function simpleHash($inputString){
+    $numberRepresentation = 0;
+    for ($i = 0; $i < strlen($inputString); $i++){
+        # ord(char)は、文字の整数値を返します。
+        $numberRepresentation += ord($inputString[$i]);
+    }
+    return $numberRepresentation;
+}
+
+echo simpleHash("aaaa"). PHP_EOL;
