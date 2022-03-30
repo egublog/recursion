@@ -43,3 +43,54 @@ function allNPrimesSieve($n){
 $answer = allNPrimesSieve(100);
 printArray($answer);
 echo count($answer);
+
+// 例題
+// 自然数nが与えられるので、1からnまでに含まれる素数の和を返す、sumPrimeUpToNという関数を作成
+
+function sumPrimeUpToN($n) {
+  $count = 0;
+  $primeList = generatePrimeList($n);
+
+  for ($i = 0; $i < count($primeList); $i++) {
+      $count += $primeList[$i];
+  }
+
+  return $count;
+}
+
+function generatePrimeList($n) {
+  $primeList = [];
+  $cache = [];
+  for($i = 0; $i <= $n; $i++) {
+      array_push($cache, true);
+  }
+
+  for ($currentPrime = 2; $currentPrime <= ceil(sqrt($n)); $currentPrime++) {
+      if (!$cache[$currentPrime]) continue;
+      $i = 2;
+      $ip = $i * $currentPrime;
+
+      while ($ip <= $n) {
+          $cache[$ip] = false;
+          $i++;
+          $ip = $i * $currentPrime;
+      }
+  }
+
+  for ($i = 2; $i < count($cache); $i++) {
+      if ($cache[$i]) array_push($primeList, $i);
+  }
+
+  return $primeList;
+}
+
+print(json_encode(generatePrimeList(53))) . PHP_EOL;
+
+// 381
+echo sumPrimeUpToN(53) . PHP_EOL;
+
+// 963
+echo sumPrimeUpToN(89) . PHP_EOL;
+
+// 1060
+echo sumPrimeUpToN(97) . PHP_EOL;
