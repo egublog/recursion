@@ -94,3 +94,22 @@ echo sumPrimeUpToN(89) . PHP_EOL;
 
 // 1060
 echo sumPrimeUpToN(97) . PHP_EOL;
+
+// キャッシュ(3)
+
+// 末尾再帰を使って、n番目のフィボナッチを返す関数を作成します。
+function fibonacciNumberTailHelper($fn1, $fn2, $n){
+  if($n < 1) {
+      return $fn1;
+  }
+  return fibonacciNumberTailHelper($fn2, $fn1+$fn2, $n-1);
+}
+
+function fibonacciNumberTail($n){
+  // この関数が1つのパラメータを受け取るように、ヘルパー関数を使います。
+  // そうすることによって、関数の再利用をより簡単に行うことができます。
+  // 0と1からスタートします。
+  return fibonacciNumberTailHelper(0,1,$n);
+}
+
+echo fibonacciNumberTail(20). PHP_EOL;
