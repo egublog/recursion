@@ -132,3 +132,24 @@ $sampleList = [3,10,23,3,4,50,2,3,4,18,6,1,-2];
 echo printBool(existsWithinList($sampleList,23)) .PHP_EOL;
 echo printBool(existsWithinList($sampleList,-2)) .PHP_EOL;
 echo printBool(existsWithinList($sampleList,100)) .PHP_EOL;
+
+// TODO: 固定配列listと整数valueを受け取り、list内にあるvalueのインデックスを返す、searchListという関数をハッシュマップを使って作成。valueがlist内に複数ある場合は先に出てきたインデックスを返す。もし発見されない場合は-1を返す。
+
+function searchList($list, $value) {
+  $hashMap = array();
+
+  for($i = 0; $i < count($list); $i++){
+      if (!is_null($hashMap[$list[$i]])) continue;
+      $hashMap[$list[$i]] = $i;
+  }
+
+  return !is_null($hashMap[$value]) ? $hashMap[$value] : -1;
+}
+
+$sampleList = [3,10,23,3,4,50,2,3,4,18,6,1,-2];
+
+echo searchList($sampleList,23) . PHP_EOL; // 2
+
+echo searchList($sampleList,-2) . PHP_EOL; // 12
+
+echo searchList($sampleList,100) . PHP_EOL; // -1
