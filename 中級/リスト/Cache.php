@@ -153,3 +153,31 @@ echo searchList($sampleList,23) . PHP_EOL; // 2
 echo searchList($sampleList,-2) . PHP_EOL; // 12
 
 echo searchList($sampleList,100) . PHP_EOL; // -1
+
+// ハッシュマップキャッシング(2)
+function printArray2($intArr){
+  echo "[ ";
+  for ($i = 0; $i < count($intArr); $i++){
+      echo $intArr[$i] . " ";
+  }
+  echo "]" . PHP_EOL;
+}
+
+function linearSearchExists($haystack, $needle){
+  for($i = 0; $i < count($haystack);$i++){
+      if($haystack[$i] === $needle) return true;
+  }
+  return false;
+}
+
+function listIntersection($targetList, $searchList){
+  $results = [];
+  for($i=0; $i < count($searchList) ; $i++){
+      if(linearSearchExists($targetList, $searchList[$i])) $results[] = ($searchList[$i]);
+  }
+  return $results;
+}
+
+printArray2(listIntersection([1,2,3,4,5,6],[1,4,4,5,8,9,10,11]));
+printArray2(listIntersection([3,4,5,10,2,20,4,5],[4,20,22,2,2,2,10,1,4]));
+printArray2(listIntersection([2,3,4,54,10,5,9,11],[3,10,23,10,0,5,9,2]));
