@@ -181,3 +181,61 @@ function listIntersection($targetList, $searchList){
 printArray2(listIntersection([1,2,3,4,5,6],[1,4,4,5,8,9,10,11]));
 printArray2(listIntersection([3,4,5,10,2,20,4,5],[4,20,22,2,2,2,10,1,4]));
 printArray2(listIntersection([2,3,4,54,10,5,9,11],[3,10,23,10,0,5,9,2]));
+
+// ハッシュマップキャッシング(3)
+// 例題1
+// アルファベットで構成される文字列が与えられるのでそれがパングラムかどうか判定する、isPangramという関数を作成してください。パングラムとは、a-zまでの全てのアルファベットを含んだ文字列のことを指します。
+
+function isPangram($string) {
+  $hashmap = array();
+  $string = str_replace(' ', '', $string);
+  $lowerString = strtolower($string);
+
+  for ($i = 0; $i < strlen($lowerString); $i++) {
+      if (is_null($hashmap[$lowerString[$i]])) $hashmap[$lowerString[$i]] = 1;
+      else $hashmap[$lowerString[$i]]++;
+  }
+
+  return count($hashmap) == 26 ? true : false;
+}
+
+// True
+echo (isPangram("we promptly judged antique ivory buckles for the next prize") ? "True" : "False") . PHP_EOL;
+
+// False
+echo (isPangram("sheep for a unique zebra when quick red vixens jump over the yacht") ? "True" : "False") . PHP_EOL;
+
+// True
+echo (isPangram("a quick brown fox jumps over the lazy dog") ? "True" : "False") . PHP_EOL;
+
+
+// 例題2
+// 文字列stringが与えられるので、全ての文字が同じ数だけ含まれているかどうか判定するfindXTimesという関数を作成してください。
+
+function findXTimes($string) {
+  $hashmap = array();
+  for ($i = 0; $i < strlen($string); $i++) {
+      if (is_null($hashmap[$string[$i]])) $hashmap[$string[$i]] = 1;
+      $hashmap[$string[$i]]++;
+  }
+
+  foreach ($hashmap as $key => $value) {
+      if ($hashmap[$key] != $hashmap[$string[0]]) return false;
+  }
+  return true;
+}
+
+// true
+echo (findXTimes("babacddc") ? "True" : "False") . PHP_EOL;
+
+// true
+echo (findXTimes("aaabbbcccddd") ? "True" : "False") . PHP_EOL;
+
+// false
+echo (findXTimes("aaabbccdd") ? "True" : "False") . PHP_EOL;
+
+// true
+echo (findXTimes("zadbchvwxbwhdxvcza") ? "True" : "False") . PHP_EOL;
+
+// false
+echo (findXTimes("zadbchvwxbwhdxvczb") ? "True" : "False") . PHP_EOL;
