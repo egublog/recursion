@@ -225,17 +225,12 @@ function findXTimes($string) {
   return true;
 }
 
-// true
-echo (findXTimes("babacddc") ? "True" : "False") . PHP_EOL;
+echo (findXTimes("babacddc") ? "True" : "False") . PHP_EOL; // true
 
-// true
-echo (findXTimes("aaabbbcccddd") ? "True" : "False") . PHP_EOL;
+echo (findXTimes("aaabbbcccddd") ? "True" : "False") . PHP_EOL; // true
 
-// false
-echo (findXTimes("aaabbccdd") ? "True" : "False") . PHP_EOL;
+echo (findXTimes("aaabbccdd") ? "True" : "False") . PHP_EOL; // false
 
-// true
-echo (findXTimes("zadbchvwxbwhdxvcza") ? "True" : "False") . PHP_EOL;
+echo (findXTimes("zadbchvwxbwhdxvcza") ? "True" : "False") . PHP_EOL; // true
 
-// false
-echo (findXTimes("zadbchvwxbwhdxvczb") ? "True" : "False") . PHP_EOL;
+echo (findXTimes("zadbchvwxbwhdxvczb") ? "True" : "False") . PHP_EOL; // false
