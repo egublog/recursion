@@ -45,7 +45,7 @@ class Main{
       System.out.println("weight - " + p.weightKg);
       System.out.println("Current Money - " + p.getCash());
 
-      p.lastName = "Poolhopper";
+      p.lastName = "PoolHopper";
       p.age = 40;
       p.heightM = 180;
       p.weightKg = 140;
