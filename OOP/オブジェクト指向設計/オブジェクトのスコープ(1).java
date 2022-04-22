@@ -38,8 +38,8 @@ class Person{
 class Main{
   public static void main(String[] args){
       Person p = new Person("Ryu"); 
-      System.out.println("firstname - " + p.firstName);
-      System.out.println("lastname - " + p.lastName); //Stringはオブジェクト型で、デフォルトはnullになります。
+      System.out.println("firstName - " + p.firstName);
+      System.out.println("lastName - " + p.lastName); //Stringはオブジェクト型で、デフォルトはnullになります。
       System.out.println("age - " + p.age);
       System.out.println("height - " + p.heightM);
       System.out.println("weight - " + p.weightKg);
@@ -51,8 +51,8 @@ class Main{
       p.weightKg = 140;
 
       System.out.println();
-      System.out.println("firstname - " + p.firstName);
-      System.out.println("lastname - " + p.lastName);
+      System.out.println("firstName - " + p.firstName);
+      System.out.println("lastName - " + p.lastName);
       System.out.println("age - " + p.age);
       System.out.println("height - " + p.heightM);
       System.out.println("weight - " + p.weightKg);
