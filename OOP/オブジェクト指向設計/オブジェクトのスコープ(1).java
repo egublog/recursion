@@ -26,7 +26,7 @@ class Person{
   }
 
   public int getCash(){
-      // オブジェクト型なので、walletはnullになります。
+      // オブジェクト型なので、walletはnullになる
       if(this.wallet == null){
           System.out.println("NO WALLET");
           return 0;
@@ -39,7 +39,7 @@ class Main{
   public static void main(String[] args){
       Person p = new Person("Ryu"); 
       System.out.println("firstName - " + p.firstName);
-      System.out.println("lastName - " + p.lastName); //Stringはオブジェクト型で、デフォルトはnullになります。
+      System.out.println("lastName - " + p.lastName); //Stringはオブジェクト型で、デフォルトはnullになる
       System.out.println("age - " + p.age);
       System.out.println("height - " + p.heightM);
       System.out.println("weight - " + p.weightKg);
