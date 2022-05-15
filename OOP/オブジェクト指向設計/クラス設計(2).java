@@ -4,9 +4,7 @@ class RGB24{
   public int green;
   public int blue;
 
-  // RGB24のコンストラクタ。thisは現在のインスタンスの変数へアクセスできるキーワードです。
-  // Javaでは、コンストラクタはクラス名と同じ名前のメソッドです。
-  // オブジェクトは、thisキーワードで自分自身を参照することができます。thisキーワードは、現在のインスタンスのオブジェクトです。メソッドの内部でアクセスすることができます。
+  // RGB24のコンストラクタ。
   public RGB24(int red, int green, int blue){
       this.red = red;
       this.green = green;
