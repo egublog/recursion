@@ -11,8 +11,7 @@ class Wallet{
   public int getTotalMoney(){
       return (1*bill1) + (5*bill5) + (10*bill10) + (20*bill20) + (50*bill50) + (100*bill100);
   }
-
-  // moneyを挿入し、財布に入れた金額を返します。
+  // moneyを挿入し、財布に入れた金額を返す。
   public int insertBill(int bill, int amount){
       switch(bill){
           case(1):
