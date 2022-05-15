@@ -67,7 +67,6 @@ class Person{
   }
 
   public void printState(){
-      // thisキーワードは必要ではありません。スコープのルールが使われます。
       System.out.println("firstname - " + firstName);
       System.out.println("lastname - " + lastName); 
       System.out.println("age - " + age);
