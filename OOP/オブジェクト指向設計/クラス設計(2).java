@@ -45,7 +45,6 @@ class RGB24{
 
 class Main{
   public static void main(String[] args){
-      // 3つのRGB24インスタンスを作成します。
       RGB24 color1 = new RGB24(0, 153, 255);
       RGB24 color2 = new RGB24(255, 153, 204);
       RGB24 color3 = new RGB24(153, 255, 51);
