@@ -23,7 +23,7 @@ class RGB24{
       return Integer.toBinaryString(Integer.parseInt(this.getHex(), 16));
   }
 
-  // RGBが赤、青、緑の中でどの色が濃いのか、もしくはgrayなのか決定することができる。
+  // RGBが赤、青、緑の中でどの色が濃いのか、もしくはgrayなのか決定することができる。 
   public String getColorShade(){
       if(this.red == this.green && this.green == this.blue) return "grayscale";
       String greatestString = "red";
